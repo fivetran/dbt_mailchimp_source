@@ -7,20 +7,8 @@ sources:
 
     tables:
       - name: campaign
-        identifier: "{{ var('campaign', 'campaign') }}"
-
       - name: campaign_recipient
-        identifier: "{{ var('campaign_recipient', 'campaign_recipient') }}"
-
-      - name: campaign_recipient_activity
-        identifier: "{{ var('campaign_recipient_activity', 'campaign_recipient_activity') }}"
-        
-      - name: list
-        identifier: "{{ var('list', 'list') }}"
-        
-      - name: member
-        identifier: "{{ var('member', 'member') }}"
-        
-      - name: unsubscribe
-        identifier: "{{ var('unsubscribe', 'unsubscribe') }}"
-        
+      - name: campaign_recipient_activity        
+      - name: list        
+      - name: member        
+      - name: unsubscribe        
