@@ -12,9 +12,9 @@ with base as (
         email_type,
         status,
         list_id,
-        timestamp_signup as signup_date,
-        timestamp_opt as opt_in_date,
-        last_changed as last_changed_date
+        timestamp_signup as signup_timestamp,
+        timestamp_opt as opt_in_timestamp,
+        last_changed as last_changed_timestamp
     from base
 
 )
