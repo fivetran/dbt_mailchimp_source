@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ var('some_ref', source('mailchimp','campaign_recipient_activity')) }}
+    from {{ source('mailchimp','campaign_recipient_activity') }}
 
 ), fields as (
 
