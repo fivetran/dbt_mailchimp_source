@@ -13,7 +13,7 @@ jobs:
           command: |
             echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
       - restore_cache:
-          key: deps1-{{ .Branch }}
+          key: deps2-{{ .Branch }}
 
       - run:
           name: "Setup dbt"
@@ -58,6 +58,6 @@ jobs:
             dbt run --target bigquery --full-refresh
             dbt test --target bigquery
       - save_cache:
-          key: deps1-{{ .Branch }}
+          key: deps2-{{ .Branch }}
           paths:
             - "venv"
