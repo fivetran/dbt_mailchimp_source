@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ source('mailchimp','unsubscribe')}}
+    from {{ var('unsubscribe') }}
 
 ), fields as (
 

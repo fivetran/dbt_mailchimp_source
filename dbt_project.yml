@@ -1,6 +1,8 @@
 name: 'mailchimp_source'
 version: '1.0.0'
 
+config-version: 2
+
 source-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
@@ -15,4 +17,19 @@ clean-targets:
 
 models:
     mailchimp_source:
-        materialized: ephemeral
+        materialized: view
+
+vars:
+    mailchimp_source:
+        automation: "{{ source('mailchimp','automation') }}"
+        automation_email: "{{ source('mailchimp','automation_email') }}"
+        automation_recipient: "{{ source('mailchimp','automation_recipient') }}"
+        automation_recipient_activity: "{{ source('mailchimp','automation_recipient_activity') }}"
+        campaign: "{{ source('mailchimp','campaign') }}"
+        campaign_recipient: "{{ source('mailchimp','campaign_recipient') }}"
+        campaign_recipient_activity: "{{ source('mailchimp','campaign_recipient_activity') }}"
+        segment: "{{ source('mailchimp','segment') }}"
+        segment_member: "{{ source('mailchimp','segment_member') }}"
+        list: "{{ source('mailchimp','list') }}"
+        member: "{{ source('mailchimp','member') }}"
+        unsubscribe: "{{ source('mailchimp','unsubscribe') }}"

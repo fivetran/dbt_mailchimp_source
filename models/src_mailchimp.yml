@@ -6,9 +6,15 @@ sources:
     database: "{{ var('database', target.database) }}"
 
     tables:
+      - name: automation
+      - name: automation_email
+      - name: automation_recipient
+      - name: automation_recipient_activity
       - name: campaign
       - name: campaign_recipient
-      - name: campaign_recipient_activity        
-      - name: list        
-      - name: member        
-      - name: unsubscribe        
+      - name: campaign_recipient_activity
+      - name: segment
+      - name: segment_member
+      - name: list
+      - name: member
+      - name: unsubscribe
