@@ -31,7 +31,7 @@ jobs:
             echo `pwd`
             cd integration_tests
             dbt deps
-            dbt seed --target redshift
+            dbt seed --target redshift --full-refresh
             dbt run --target redshift --full-refresh
             dbt test --target redshift
       - run:
