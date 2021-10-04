@@ -16,7 +16,8 @@ fields as (
                 staging_columns=get_automation_recipient_columns()
             )
         }}
-
+        
+    from base
 
 ), 
 

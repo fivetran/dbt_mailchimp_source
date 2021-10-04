@@ -16,6 +16,8 @@ fields as (
                 staging_columns=get_automation_recipient_activity_columns()
             )
         }}
+        
+    from base
 
 ), 
 
