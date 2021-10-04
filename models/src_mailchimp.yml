@@ -2,19 +2,407 @@ version: 2
 
 sources:
   - name: mailchimp
-    schema: "{{ var('schema', 'mailchimp') }}"
+    schema: "{{ var('mailchimp_schema', 'mailchimp') }}"
     database: "{{ var('database', target.database) }}"
 
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+      
+    freshness:
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 168, period: hour}
+
+
+
     tables:
+      - name: automation_activities
+        description:
+        columns:
+          - name: action
+            description:
+          - name: automation_email_id
+            description:
+          - name: member_id
+            description:
+          - name: list_id
+            description:
+          - name: timestamp
+            description:
+          - name: ip
+            description:
+          - name: url
+            description:
+          - name: bounce_type
+            description:
+            
       - name: automation
+        description: 
+        columns:
+          - name: id
+            description: 
+          - name: list_id
+            description: 
+          - name: segment_id
+            description: 
+          - name: segment_text
+            description: 
+          - name: start_time
+            description: 
+          - name: create_time
+            description: 
+          - name: status
+            description: 
+          - name: title
+            description: 
+          - name: trigger_settings
+            description: 
+
       - name: automation_email
+        description:
+        columns:
+          - name: id
+            description:
+          - name: automation_id
+            description:
+          - name: create_time
+            description:
+          - name: start_time
+            description:
+          - name: send_time
+            description:
+          - name: from_name
+            description:
+          - name: reply_to
+            description:
+          - name: status
+            description:
+          - name: subject_line
+            description:
+          - name: title
+            description:
+          - name: to_name
+            description:
+          - name: archive_url
+            description:
+          - name: authenticate
+            description:
+          - name: auto_footer
+            description:
+          - name: auto_tweet
+            description:
+          - name: clicktale
+            description:
+          - name: content_type
+            description:
+          - name: delay_action
+            description:
+          - name: delay_action_description
+            description:
+          - name: delay_amount
+            description:
+          - name: delay_direction
+            description:
+          - name: delay_full_description
+            description:
+          - name: delay_type
+            description:
+          - name: drag_and_drop
+            description:
+          - name: fb_comments
+            description:
+          - name: folder_id
+            description:
+          - name: google_analytics
+            description:
+          - name: inline_css
+            description:
+          - name: position
+            description:
+          - name: template_id
+            description:
+          - name: timewarp
+            description:
+          - name: track_ecomm_360
+            description:
+          - name: track_goals
+            description:
+          - name: track_html_clicks
+            description:
+          - name: track_opens
+            description:
+          - name: track_text_clicks
+            description:
+          - name: use_conversation
+            description:
+
       - name: automation_recipient
+        description:
+        columns:
+          - name: member_id
+            description: 
+          - name: automation_email_id
+            description: 
+          - name: list_id
+            description: 
+
       - name: automation_recipient_activity
+        description:
+        columns:
+          - name: member_id
+            description: 
+          - name: automation_email_id
+            description:
+          - name: list_id
+            description: 
+
       - name: campaign
+        description:
+        columns:
+          - name: id
+            description:
+          - name: segment_id
+            description:
+          - name: create_time as create_timestamp
+            description:
+          - name: send_time as send_timestamp
+            description:
+          - name: list_id
+            description:
+          - name: reply_to as reply_to_email
+            description:
+          - name: type as campaign_type
+            description:
+          - name: title
+            description:
+          - name: archive_url
+            description:
+          - name: authenticate
+            description:
+          - name: auto_footer
+            description:
+          - name: auto_tweet
+            description:
+          - name: clicktale
+            description:
+          - name: content_type
+            description:
+          - name: drag_and_drop
+            description:
+          - name: fb_comments
+            description:
+          - name: folder_id
+            description:
+          - name: from_name
+            description:
+          - name: google_analytics
+            description:
+          - name: inline_css
+            description:
+          - name: long_archive_url
+            description:
+          - name: status
+            description:
+          - name: subject_line
+            description:
+          - name: template_id
+            description:
+          - name: test_size
+            description:
+          - name: timewarp
+            description:
+          - name: to_name
+            description:
+          - name: track_ecomm_360
+            description:
+          - name: track_goals
+            description:
+          - name: track_html_clicks
+            description:
+          - name: track_opens
+            description:
+          - name: track_text_clicks
+            description:
+          - name: use_conversation
+            description:
+          - name: wait_time
+            description:
+          - name: winner_criteria
+            description:
+          - name: winning_campaign_id
+            description:
+          - name: winning_combination_id
+            description:
+
       - name: campaign_recipient
+        description:
+        columns:
+          - name: campaign_id
+            description:
+          - name: member_id
+            description:
+          - name: combination_id
+            description:
+          - name: list_id
+            description:
+
       - name: campaign_recipient_activity
+        description:
+        columns:
+          - name: action
+            description:
+          - name: campaign_id
+            description:
+          - name: member_id
+            description:
+          - name: list_id
+            description:
+          - name: timestamp
+            description:
+          - name: ip
+            description:
+          - name: url
+            description:
+          - name: bounce_type
+            description:
+          - name: combination_id
+            description:
+
       - name: segment
+        description:
+        columns:
+          - name: id
+            description: 
+          - name: list_id
+            description: 
+          - name: member_count
+            description: 
+          - name: name
+            description: 
+          - name: type
+            description: 
+          - name: updated_at
+            description: 
+          - name: created_at
+            description: 
+
       - name: segment_member
+        description:
+        columns:
+          - name: segment_id
+            description: 
+          - name: member_id
+            description: 
+          - name: list_id
+            description: 
+
       - name: list
+        description:
+        columns:
+          - name: id
+            description:
+          - name: date_created
+            description:
+          - name: name
+            description:
+          - name: list_rating
+            description:
+          - name: beamer_address
+            description:
+          - name: contact_address_1
+            description:
+          - name: contact_address_2
+            description:
+          - name: contact_city
+            description:
+          - name: contact_company
+            description:
+          - name: contact_country
+            description:
+          - name: contact_state
+            description:
+          - name: contact_zip
+            description:
+          - name: default_from_email
+            description:
+          - name: default_from_name
+            description:
+          - name: default_language
+            description:
+          - name: default_subject
+            description:
+          - name: email_type_option
+            description:
+          - name: notify_on_subscribe
+            description:
+          - name: notify_on_unsubscribe
+            description:
+          - name: permission_reminder
+            description:
+          - name: subscribe_url_long
+            description:
+          - name: subscribe_url_short
+            description:
+          - name: use_archive_bar
+            description:
+          - name: visibility
+            description:
+
       - name: member
+        description:
+        columns:
+          - name: id
+            description:
+          - name: email_address
+            description:
+          - name: email_client
+            description:
+          - name: email_type
+            description:
+          - name: status
+            description:
+          - name: list_id
+            description:
+          - name: timestamp_signup
+            description:
+          - name: timestamp_opt
+            description:
+          - name: last_changed
+            description:
+          - name: country_code
+            description:
+          - name: dstoff
+            description:
+          - name: gmtoff
+            description:
+          - name: ip_opt
+            description:
+          - name: ip_signup
+            description:
+          - name: language
+            description:
+          - name: latitude
+            description:
+          - name: longitude
+            description:
+          - name: member_rating
+            description:
+          - name: timezone
+            description:
+          - name: unique_email_id
+            description:
+          - name: vip
+            description:
+
       - name: unsubscribe
+        description:
+        columns:
+          - name: campaign_id
+            description:
+          - name: member_id
+            description:
+          - name: list_id
+            description:
+          - name: reason
+            description:
+          - name: timestamp
+            description:
