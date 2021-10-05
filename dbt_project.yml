@@ -17,7 +17,10 @@ clean-targets:
 
 models:
     mailchimp_source:
-        materialized: view
+        +materialized: table
+        +schema: stg_mailchimp
+        tmp:
+          +materalized: view
 
 vars:
     mailchimp_source:
