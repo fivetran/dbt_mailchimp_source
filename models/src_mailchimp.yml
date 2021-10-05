@@ -13,36 +13,7 @@ sources:
       error_after: {count: 168, period: hour}
 
 
-
     tables:
-      - name: automation_activities
-        description: Records each activity taken in relation to an automation email. 
-        columns:
-          - name: action
-            description: >
-              One of the following actions: 'open', 'click', or 'bounce'
-
-          - name: automation_email_id
-            description: The ID for the automation email that relates to the activity.
-
-          - name: member_id
-            description: The ID of the member the activity relates to.
-
-          - name: list_id
-            description: The ID of the list the email was sent to.
-
-          - name: timestamp
-            description: The timestamp when the activity occurred.
-
-          - name: ip
-            description: The IP address recorded for the action.
-
-          - name: url
-            description: If the action is a 'click', the URL on which the member clicked.
-
-          - name: bounce_type
-            description: > 
-              If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
 
       - name: automation
         description: Each record represents an automation in Mailchimp.
@@ -67,8 +38,8 @@ sources:
 
           - name: status
             description: >
-            The current status of the Automation.
-            Possible Values: save, paused, sending
+              The current status of the Automation.
+              Possible Values: save, paused, sending
 
           - name: title
             description: The title of the Automation.
@@ -373,7 +344,7 @@ sources:
         columns:
           - name: action
             description: >
-            One of the following actions: 'open', 'click', or 'bounce'
+              One of the following actions: 'open', 'click', or 'bounce'
 
           - name: campaign_id
             description: The unique ID for the sent campaign.
@@ -395,7 +366,7 @@ sources:
 
           - name: bounce_type
             description: >
-            If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
+              If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
 
           - name: combination_id
             description: The ID of the combination the member was part of for a campaign. 
@@ -439,6 +410,7 @@ sources:
 
       - name: list
         description: Each record represents a list in Mailchimp.
+        columns:
           - name: id
             description: The unique ID of a list.
 
@@ -513,9 +485,9 @@ sources:
 
           - name: visibility
             description: Whether this list is public or private.
-s
+
       - name: member
-        description:
+        description: Each record represents a member in Mailchimp.
         columns:
           - name: id
             description: The ID of the member.
