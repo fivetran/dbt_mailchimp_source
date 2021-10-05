@@ -45,7 +45,7 @@ sources:
               If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
 
       - name: automation
-        description: Each record represents an automation in Mailchimp, enriched with click, open and unsubscribe metrics. (Enabled if you are using automations.)
+        description: Each record represents an automation in Mailchimp.
         columns:
           - name: id
             description: The ID of the automation in Mailchimp.
@@ -77,7 +77,7 @@ sources:
             description: Available triggers for Automation workflows.
 
       - name: automation_email
-        description: Each record represents an automation email (that make up automations), enriched with click, open and unsubscribe metrics. (Enabled if you are using automations.)
+        description: Each record represents an automation email (that make up automations).
         columns:
           - name: id
             description: The ID of the email.
@@ -208,7 +208,7 @@ sources:
           - name: action_type
             description: >
               One of the following actions: 'open', 'click', or 'bounce'
-              
+
           - name: automation_email_id
             description: The ID for the automation email that relates to the activity.
 
@@ -232,7 +232,7 @@ sources:
               If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
 
       - name: campaign
-        description: Each record represents a campaign in Mailchimp, enriched with click, open and unsubscribe metrics.
+        description: Each record represents a campaign in Mailchimp.
         columns:
           - name: id
             description: The ID of the campaign in Mailchimp.
@@ -256,6 +256,7 @@ sources:
             description: >
               The type of campaign sent. 
               Possible values: regular, plaintext, absplit, variate, rss.
+
           - name: title
             description: The title of the campaign.
 
@@ -353,7 +354,7 @@ sources:
 
 
       - name: campaign_recipient
-        description: Each record represents the send of a campaign email, enriched with click, open and unsubscribe metrics.
+        description: Each record represents the send of a campaign email.
         columns:
           - name: campaign_id
             description: The ID of the campaign a sent email is from.
@@ -368,7 +369,7 @@ sources:
             description: The ID of the list the campaign was sent to.
 
       - name: campaign_recipient_activity
-        description: Each record represents an activity taken in relation to a campaign email, enriched with data about when the campaign was sent and the lag between send and the activity.
+        description: Each record represents an activity taken in relation to a campaign email.
         columns:
           - name: action
             description: >
@@ -400,7 +401,7 @@ sources:
             description: The ID of the combination the member was part of for a campaign. 
 
       - name: segment
-        description:
+        description: Each record represents a segment in Mailchimp.
         columns:
           - name: id
             description: The ID for the Segment from Mailchimp
@@ -425,7 +426,7 @@ sources:
 
 
       - name: segment_member
-        description:
+        description: Each record represents a member and their segment data. 
         columns:
           - name: segment_id
             description: The ID for the Segment from Mailchimp.
@@ -437,8 +438,7 @@ sources:
             description: The ID of the List the segment is part of.
 
       - name: list
-        description: Each record represents a list in Mailchimp, enriched with campaign metrics, (optionally) automation metrics and information about members.
-        columns:
+        description: Each record represents a list in Mailchimp.
           - name: id
             description: The unique ID of a list.
 
@@ -583,7 +583,7 @@ s
             description: VIP status for subscriber.
 
       - name: unsubscribe
-        description:
+        description: Each record represents a member who unsubscribed.
         columns:
           - name: campaign_id
             description: The unique id for the campaign.
