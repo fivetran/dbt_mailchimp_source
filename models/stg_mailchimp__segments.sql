@@ -37,4 +37,4 @@ finals as (
 )
 
 select *
-from final
+from finals
