@@ -45,6 +45,10 @@ final as (
         timezone,
         unique_email_id,
         vip
+        
+        --The below macro adds the fields defined within your mailchimp__member_pass_through_columns variable into the staging model
+        {{ fivetran_utils.fill_pass_through_columns('mailchimp__member_pass_through_columns') }}
+        
     from fields
 
 )
