@@ -47,16 +47,17 @@ This package includes all of the source columns that are defined in the macros f
 
 You can add more columns using our passthrough column variables. These variables allow the passthrough columns to be aliased (`alias`) and casted (`transform_sql`) if you want, although it is not required. You can configure datatype casting by using a SQL snippet within the `transform_sql` key. You may add the desired SQL snippet while omitting the `as field_name` part of the casting statement - we rename this column with the alias attribute - and your custom passthrough columns will be casted accordingly.
 
-Use the following format for declaring the respective passthrough variables:
+Use the following format for declaring the respective passthrough variables (note to call the alias name, not original name, in the transform_sql):
 
 ```yml
 # dbt_project.yml
 
 vars:
 
-  mailchimp__member_pass_through_columns:
+  mailchimp__members_pass_through_columns:
     - name:           "custom_field_name"
       alias:          "normal_field_name"
+      transform_sql:  "cast(normal_field_name as string)"
 ```
 
 
