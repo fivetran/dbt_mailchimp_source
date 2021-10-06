@@ -38,7 +38,7 @@ unique_key as (
 
     select 
         *, 
-        {{ dbt_utils.surrogate_key([ 'member_id', 'list_id', 'unsubscribe_timestamp']) }} as id
+        {{ dbt_utils.surrogate_key([ 'member_id', 'list_id', 'unsubscribe_timestamp']) }} as unsubscribe_id
     from final
 
 )

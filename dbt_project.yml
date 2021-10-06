@@ -24,4 +24,4 @@ vars:
         list: "{{ source('mailchimp','list') }}"
         member: "{{ source('mailchimp','member') }}"
         unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
-        mailchimp__member_pass_through_columns: []
+        mailchimp__members_pass_through_columns: []

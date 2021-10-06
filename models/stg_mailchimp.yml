@@ -158,7 +158,7 @@ models:
     description: Each record represents info about the recipient of each automation.
     columns:
       - name: automation_recipient_id
-        description: Surrogate key that concatenates member_id and automation_email_id 
+        description: Surrogate key that uses member_id and automation_email_id 
         tests: 
           - not_null
           - unique
@@ -211,11 +211,11 @@ models:
     description: Each record represents the send of a campaign email.
     columns:
       - name: email_id
-        description: The surrogate key that concatenates table campaign_id and member_id. 
+        description: The surrogate key that uses table campaign_id and member_id. 
         tests:
           - unique
           - not_null
-          
+
       - name: campaign_id
         description: The ID of the campaign a sent email is from.
 
@@ -586,8 +586,8 @@ models:
   - name: stg_mailchimp__unsubscribes
     description: Each record represents a member who unsubscribed.
     columns:
-      - name: id
-        description: The surrogate key that concatenates table member_id, list_id, and unsubscribe_timestamp
+      - name: unsubscribe_id
+        description: The surrogate key that uses table member_id, list_id, and unsubscribe_timestamp
         tests: 
           - not_null
           - unique
