@@ -37,4 +37,6 @@
 
 **Feedback**
 
+
 We are so excited you decided to contribute to the Fivetran community dbt package! We continue to work to improve the packages and would greatly appreciate your [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next.
+
