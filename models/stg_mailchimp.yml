@@ -37,7 +37,7 @@ models:
         description: >
           If the action is a 'bounce', the type of bounce received: 'hard', 'soft'.
 
-  - name: stg_mailchimp_automation_emails
+  - name: stg_mailchimp__automation_emails
     description: Each record represents an automation email (that make up automations).
     columns:
       - name: automation_email_id
@@ -154,7 +154,7 @@ models:
       - name: use_conversation
         description: Use Mailchimp Conversation feature to manage out-of-office replies.
 
-  - name: stg_mailchimp_automation_recipients
+  - name: stg_mailchimp__automation_recipients
     description: Each record represents info about the recipient of each automation.
     columns:
       - name: automation_recipient_id
@@ -172,7 +172,7 @@ models:
       - name: list_id
         description: The ID of the List an automation was sent to.
 
-  - name: stg_mailchimp_automations
+  - name: stg_mailchimp__automations
     description: Each record represents an automation in Mailchimp.
     columns:
       - name: automation_id
@@ -188,6 +188,7 @@ models:
         description: The ID of the Segment an automation was sent to.
 
       - name: segment_text
+        description: The field describing the Segment an automation was sent to.
 
       - name: started_timestamp
         description: The date and time the Automation was started.
@@ -206,7 +207,28 @@ models:
       - name: trigger_settings
         description: Available triggers for Automation workflows.
 
-  - name: stg_mailchimp_campaign_activities
+  - name: stg_mailchimp__campaign_recipients
+    description: Each record represents the send of a campaign email.
+    columns:
+      - name: email_id
+        description: The surrogate key that concatenates table campaign_id and member_id. 
+        tests:
+          - unique
+          - not_null
+          
+      - name: campaign_id
+        description: The ID of the campaign a sent email is from.
+
+      - name: member_id
+        description: The ID of the member an email was sent to.
+
+      - name: combination_id
+        description: The ID of the combination the member was part of for a campaign. 
+
+      - name: list_id
+        description: The ID of the list the campaign was sent to.
+
+  - name: stg_mailchimp__campaign_activities
     description: Each record represents an activity taken in relation to a campaign email.
     columns:
       - name: activity_id
@@ -246,7 +268,7 @@ models:
       - name: email_id
         description: The ID of the email sent. (Created in dbt, not Mailchimp.)
 
-  - name: stg_mailchimp_campaigns
+  - name: stg_mailchimp__campaigns
     description: Each record represents a campaign in Mailchimp.
     columns:
       - name: campaign_id
@@ -370,7 +392,7 @@ models:
       - name: winning_combination_id
         description: ID for the winning combination.
 
-  - name: stg_mailchimp_lists
+  - name: stg_mailchimp__lists
     description: Each record represents a list in Mailchimp.
     columns:
       - name: list_id
@@ -451,7 +473,7 @@ models:
       - name: visibility
         description: Whether this list is public or private.
 
-  - name: stg_mailchimp_members
+  - name: stg_mailchimp__members
     description: Each record represents a member in Mailchimp.
     columns:
       - name: member_id
@@ -522,7 +544,7 @@ models:
       - name: vip
         description: VIP status for subscriber.
 
-  - name: stg_mailchimp_segment_members
+  - name: stg_mailchimp__segment_members
     description: Each record represents a member and their segment data. 
     columns:
       - name: segment_id
@@ -534,7 +556,7 @@ models:
       - name: list_id
         description: The ID of the List the segment is part of.
 
-  - name: stg_mailchimp_segments
+  - name: stg_mailchimp__segments
     description: Each record represents a segment in Mailchimp.
     columns:
       - name: segment_id
@@ -547,7 +569,7 @@ models:
         description: The ID of the List the segment is part of.
 
       - name: member_count
-        description: The number of mebmers in the segment.
+        description: The number of members in the segment.
 
       - name: segment_name
         description: The name of the segment.
@@ -561,7 +583,7 @@ models:
       - name: created_timestamp
         description: The date and time the segment was created.
 
-  - name: stg_mailchimp_unsubscribes
+  - name: stg_mailchimp__unsubscribes
     description: Each record represents a member who unsubscribed.
     columns:
       - name: id
