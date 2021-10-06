@@ -10,10 +10,10 @@ This package enriches your Fivetran data by doing the following:
 
 ## Models
 This package contains staging models, designed to work simultaneously with our [Mailchimp modeling package](https://github.com/fivetran/dbt_mailchimp).  The staging models name columns consistently across all packages:
-    - Boolean fields are prefixed with `is_` or `has_`
-    - Timestamps are appended with `_at`
-    - ID primary keys are prefixed with the name of the table.  For example, the `campaign` table's ID column is renamed `campaign_id`.
-    - Foreign keys include the table that they refer to. For example, a campaign's `list` ID column is renamed `list_id`.
+- Boolean fields are prefixed with `is_` or `has_`
+- Timestamps are appended with `_at`
+- ID primary keys are prefixed with the name of the table.  For example, the `campaign` table's ID column is renamed `campaign_id`.
+- Foreign keys include the table that they refer to. For example, a campaign's `list` ID column is renamed `list_id`.
 
 ## Installation Instructions
 Add the following to your `packages.yml` file:
@@ -21,7 +21,7 @@ Add the following to your `packages.yml` file:
 # packages.yml
 packages:
   - package: fivetran/mailchimp_source
-    version: [">=0.3.0", "<0.4.0"]
+    version: [">=0.1.0", "<0.2.0"]
 ```
 
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
@@ -63,7 +63,12 @@ vars:
 
 ### Disabling models
 
-It's possible that your Mailchimp connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Mailchimp or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be `true`. Add variables for only the tables you would like to disable:  
+It's possible that your Mailchimp connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Mailchimp or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be `true`. Add variables for only the tables you would like to disable. The following source tables will be disabled if the vars is set to false:
+
+- automation
+- automation_email
+- automation_recipient
+- automation_recipient_activity
 
 ```yml
 # dbt_project.yml
@@ -72,7 +77,7 @@ It's possible that your Mailchimp connector does not sync every table that this 
 config-version: 2
 
 vars:
-    usting_automations: false   # Disable if you are not using automations 
+    using_automations: false   # Disable if you are not using automations 
     
 ```
 
@@ -86,19 +91,6 @@ By default this package will build the Mailchimp staging models within a schema 
 models:
     mailchimp_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
-```
-
-### Changing the Build Schema
-
-By default, this package builds the Pendo staging models within a schema titled (`<target_schema>` + `_stg_mailchimp`) in your target database. If this is not where you would like your Mailchimp staging data to be written to, add the following configuration to your `dbt_project.yml` file:
-
-```yml
-# dbt_project.yml
-
-...
-models:
-    mailchimp_source:
-        +schema: my_new_schema_name # leave blank for just the target_schema
 ```
 
 > Note that if your profile does not have permissions to create schemas in your warehouse, you can set the `+schema` to blank. The package will then write all tables to your pre-existing target schema.
