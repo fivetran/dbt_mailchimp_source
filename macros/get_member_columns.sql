@@ -25,6 +25,9 @@
     {"name": "vip", "datatype": "boolean"}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('mailchimp__members_pass_through_columns')) }}
+
+
 {{ return(columns) }}
 
 {% endmacro %}
