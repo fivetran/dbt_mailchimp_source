@@ -1,19 +1,7 @@
 name: 'mailchimp_source'
-version: '1.1.0'
+version: '0.1.0'
 
 config-version: 2
-
-source-paths: ["models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
-data-paths: ["data"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-target-path: "target" 
-clean-targets:         
-    - "target"
-    - "dbt_modules"
 
 models:
     mailchimp_source:
@@ -36,3 +24,4 @@ vars:
         list: "{{ source('mailchimp','list') }}"
         member: "{{ source('mailchimp','member') }}"
         unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
+        mailchimp__member_pass_through_columns: []
