@@ -22,7 +22,7 @@ fields as (
 
 ), 
 
-finals as (
+final as (
 
     select
         segment_id,
@@ -33,4 +33,4 @@ finals as (
 )
 
 select *
-from finals
+from final

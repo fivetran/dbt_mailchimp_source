@@ -17,8 +17,6 @@
     {"name": "list_id", "datatype": dbt_utils.type_string()},
     {"name": "longitude", "datatype": dbt_utils.type_float()},
     {"name": "member_rating", "datatype": dbt_utils.type_int()},
-    {"name": "merge_fname", "datatype": dbt_utils.type_string()},
-    {"name": "merge_lname", "datatype": dbt_utils.type_int()},
     {"name": "status", "datatype": dbt_utils.type_string()},
     {"name": "timestamp_opt", "datatype": dbt_utils.type_timestamp()},
     {"name": "timestamp_signup", "datatype": dbt_utils.type_timestamp()},
