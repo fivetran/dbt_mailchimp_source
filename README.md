@@ -3,21 +3,17 @@
 
 This package models Mailchimp data from [Fivetran's connector](https://fivetran.com/docs/applications/mailchimp). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/mailchimp/#schemainformation).
 
-> Note: This schema applies to Mailchimp connectors set up or fully re-synced after September 10, 2020.
-
 This package enriches your Fivetran data by doing the following:
 - Adds descriptions to tables and columns that are synced using Fivetran
 - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Models staging tables, which will be used in our transform package
 
 ## Models
-This package contains staging models, designed to work simultaneously with our [Mailchimp modeling package](https://github.com/fivetran/dbt_mailchimp).  The staging models:
-- Remove any rows that are soft-deleted
-- Name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Mailchimp modeling package](https://github.com/fivetran/dbt_mailchimp).  The staging models name columns consistently across all packages:
     - Boolean fields are prefixed with `is_` or `has_`
     - Timestamps are appended with `_at`
-    - ID primary keys are prefixed with the name of the table.  For example, the `issue` table's ID column is renamed `issue_id`.
-    - Foreign keys include the table that they refer to. For example, an issue's `assignee` user ID column is renamed `assignee_user_id`.
+    - ID primary keys are prefixed with the name of the table.  For example, the `campaign` table's ID column is renamed `campaign_id`.
+    - Foreign keys include the table that they refer to. For example, a campaign's `list` ID column is renamed `list_id`.
 
 ## Installation Instructions
 Add the following to your `packages.yml` file:
@@ -44,6 +40,26 @@ vars:
     mailchimp_schema: your_schema_name 
 ```
 
+
+### Passthrough Columns
+
+This package includes all of the source columns that are defined in the macros folder. We recommend including custom columns in this package because the staging models only bring in the standard columns for the `MEMBER` table.
+
+You can add more columns using our passthrough column variables. These variables allow the passthrough columns to be aliased (`alias`) and casted (`transform_sql`) if you want, although it is not required. You can configure datatype casting by using a SQL snippet within the `transform_sql` key. You may add the desired SQL snippet while omitting the `as field_name` part of the casting statement - we rename this column with the alias attribute - and your custom passthrough columns will be casted accordingly.
+
+Use the following format for declaring the respective passthrough variables:
+
+```yml
+# dbt_project.yml
+
+vars:
+
+  mailchimp__member_pass_through_columns:
+    - name:           "custom_field_name"
+      alias:          "normal_field_name"
+```
+
+
 ### Disabling models
 
 It's possible that your Mailchimp connector does not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Mailchimp or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must add the relevant variables. By default, all variables are assumed to be `true`. Add variables for only the tables you would like to disable:  
@@ -55,9 +71,8 @@ It's possible that your Mailchimp connector does not sync every table that this 
 config-version: 2
 
 vars:
-    mailchimp_using_sprints: false   # Disable if you do not have the sprint table, or if you do not want sprint related metrics reported
-    mailchimp_using_components: false # Disable if you do not have the component table, or if you do not want component related metrics reported
-    mailchimp_using_versions: false # Disable if you do not have the versions table, or if you do not want versions related metrics reported
+    usting_automations: false   # Disable if you are not using automations 
+    
 ```
 
 ### Changing the Build Schema
@@ -71,6 +86,21 @@ models:
     mailchimp_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
+
+### Changing the Build Schema
+
+By default, this package builds the Pendo staging models within a schema titled (`<target_schema>` + `_stg_mailchimp`) in your target database. If this is not where you would like your Mailchimp staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+    mailchimp_source:
+        +schema: my_new_schema_name # leave blank for just the target_schema
+```
+
+> Note that if your profile does not have permissions to create schemas in your warehouse, you can set the `+schema` to blank. The package will then write all tables to your pre-existing target schema.
 
 ## Contributions
 Additional contributions to this package are very welcome! Please create issues
