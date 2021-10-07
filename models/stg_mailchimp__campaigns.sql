@@ -1,5 +1,3 @@
-{{ config(enabled=var('using_automations', True)) }}
-
 with base as (
 
     select * 
