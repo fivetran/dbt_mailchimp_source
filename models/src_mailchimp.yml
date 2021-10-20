@@ -410,7 +410,7 @@ sources:
           - name: _fivetran_synced
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
 
-      - name: segment
+      - name: mailchimp_segment
         description: Each record represents a segment in Mailchimp.
         columns:
           - name: id

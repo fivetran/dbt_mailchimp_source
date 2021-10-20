@@ -19,7 +19,7 @@ vars:
         campaign: "{{ source('mailchimp','campaign') }}"
         campaign_recipient: "{{ source('mailchimp','campaign_recipient') }}"
         campaign_recipient_activity: "{{ source('mailchimp','campaign_recipient_activity') }}"
-        segment: "{{ source('mailchimp','segment') }}"
+        mailchimp_segment: "{{ source('mailchimp','segment') }}"
         segment_member: "{{ source('mailchimp','segment_member') }}"
         list: "{{ source('mailchimp','list') }}"
         member: "{{ source('mailchimp','member') }}"
