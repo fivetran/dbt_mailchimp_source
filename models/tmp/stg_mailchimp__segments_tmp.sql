@@ -1,1 +1,1 @@
-select * from {{ var('segment') }}
+select * from {{ var('mailchimp_segment') }}

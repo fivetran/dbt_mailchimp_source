@@ -14,7 +14,7 @@ vars:
       campaign: "{{ ref('campaign') }}"
       campaign_recipient: "{{ ref('campaign_recipient') }}"
       campaign_recipient_activity: "{{ ref('campaign_recipient_activity') }}"
-      segment: "{{ ref('segment') }}"
+      mailchimp_segment: "{{ ref('segment') }}"
       segment_member: "{{ ref('segment_member') }}"
       list: "{{ ref('list') }}"
       member: "{{ ref('member') }}"
@@ -57,7 +57,7 @@ seeds:
         last_changed: timestamp
         timestamp_opt: timestamp
         timestamp_signup: timestamp
-    segment: 
+    mailchimp_segment: 
       +column_types: 
         created_at: timestamp
         updated_at: timestamp
