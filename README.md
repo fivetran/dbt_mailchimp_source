@@ -1,4 +1,4 @@
-[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt logo and version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=>=0.20.0&color=orange)
+[![Apache License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![dbt logo and version](https://img.shields.io/static/v1?logo=dbt&label=dbt-version&message=>=0.20.x&color=orange)
 # Mailchimp (Source) 
 
 This package models Mailchimp data from [Fivetran's connector](https://fivetran.com/docs/applications/mailchimp). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/mailchimp/#schemainformation).
@@ -69,6 +69,8 @@ It's possible that your Mailchimp connector does not sync every table that this 
 - automation_email
 - automation_recipient
 - automation_recipient_activity
+- segment
+- segment_member
 
 ```yml
 # dbt_project.yml
@@ -77,8 +79,8 @@ It's possible that your Mailchimp connector does not sync every table that this 
 config-version: 2
 
 vars:
-    using_automations: false   # Disable if you are not using automations 
-    
+  mailchip_using_automations: false #disable if you do not have the automation_email, automation_email, or automation_recipient_activity tables
+  mailchimp_using_segments: false #disable if you do not have the segment table
 ```
 
 ### Changing the Build Schema
