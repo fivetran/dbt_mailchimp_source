@@ -1,3 +1,3 @@
-{{ config(enabled=var('using_automations', True)) }}
+{{ config(enabled=var('mailchimp_using_automations', True)) }}
 
 select * from {{ var('automation_recipient') }}

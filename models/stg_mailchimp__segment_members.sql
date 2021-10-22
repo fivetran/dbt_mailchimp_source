@@ -1,3 +1,5 @@
+{{ config(enabled=var('mailchimp_using_segments', True)) }}
+
 with base as (
 
     select * 
