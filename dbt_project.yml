@@ -3,6 +3,8 @@ version: '0.1.0'
 
 config-version: 2
 
+profile: 'analytics-snowflake'
+
 models:
     mailchimp_source:
         +materialized: table
