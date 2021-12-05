@@ -3,8 +3,6 @@ version: '0.1.0'
 
 config-version: 2
 
-profile: 'analytics-snowflake'
-
 models:
     mailchimp_source:
         +materialized: table
@@ -28,4 +26,4 @@ vars:
         unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
         mailchimp__members_pass_through_columns: []
         mailchimp_using_segments: True
-        mailchimp_using_automations: True 
+        mailchimp_using_automations: True
