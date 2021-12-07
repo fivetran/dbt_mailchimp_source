@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: mailchimp
     schema: "{{ var('mailchimp_schema', 'mailchimp') }}"
-    database: "{{ var('database', target.database) }}"
+    database: "{{ var('mailchimp_database', target.database) }}"
 
     loader: fivetran
     loaded_at_field: _fivetran_synced

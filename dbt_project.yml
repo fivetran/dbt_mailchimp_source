@@ -1,5 +1,5 @@
 name: 'mailchimp_source'
-version: '0.1.0'
+version: '0.1.1'
 
 config-version: 2
 
@@ -26,4 +26,4 @@ vars:
         unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
         mailchimp__members_pass_through_columns: []
         mailchimp_using_segments: True
-        mailchimp_using_automations: True 
+        mailchimp_using_automations: True
