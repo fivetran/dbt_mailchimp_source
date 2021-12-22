@@ -1,29 +1,30 @@
 name: 'mailchimp_source'
-version: '0.2.0'
+version: '0.3.0'
 
 config-version: 2
 
 models:
-    mailchimp_source:
-        +materialized: table
-        +schema: stg_mailchimp
-        tmp:
-          +materalized: view
+  mailchimp_source:
+    +materialized: table
+    +schema: stg_mailchimp
+    tmp:
+      +materalized: view
 
 vars:
-    mailchimp_source:
-        automation: "{{ source('mailchimp','automation') }}"
-        automation_email: "{{ source('mailchimp','automation_email') }}"
-        automation_recipient: "{{ source('mailchimp','automation_recipient') }}"
-        automation_recipient_activity: "{{ source('mailchimp','automation_recipient_activity') }}"
-        campaign: "{{ source('mailchimp','campaign') }}"
-        campaign_recipient: "{{ source('mailchimp','campaign_recipient') }}"
-        campaign_recipient_activity: "{{ source('mailchimp','campaign_recipient_activity') }}"
-        mailchimp_segment: "{{ source('mailchimp','segment') }}"
-        segment_member: "{{ source('mailchimp','segment_member') }}"
-        list: "{{ source('mailchimp','list') }}"
-        member: "{{ source('mailchimp','member') }}"
-        unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
-        mailchimp__members_pass_through_columns: []
-        mailchimp_using_segments: True
-        mailchimp_using_automations: True
+  mailchimp_source:
+    automation: "{{ source('mailchimp','automation') }}"
+    automation_email: "{{ source('mailchimp','automation_email') }}"
+    automation_recipient: "{{ source('mailchimp','automation_recipient') }}"
+    automation_recipient_activity: "{{ source('mailchimp','automation_recipient_activity') }}"
+    campaign: "{{ source('mailchimp','campaign') }}"
+    campaign_recipient: "{{ source('mailchimp','campaign_recipient') }}"
+    campaign_recipient_activity: "{{ source('mailchimp','campaign_recipient_activity') }}"
+    mailchimp_segment: "{{ source('mailchimp','segment') }}"
+    segment_member: "{{ source('mailchimp','segment_member') }}"
+    list: "{{ source('mailchimp','list') }}"
+    member: "{{ source('mailchimp','member') }}"
+    unsubscribe: "{{ source('mailchimp','unsubscribe') }}"
+    mailchimp__members_pass_through_columns: []
+    mailchimp_using_segments: true
+    mailchimp_using_automations: true
+require-dbt-version: [">=1.0.0", "<2.0.0"]
