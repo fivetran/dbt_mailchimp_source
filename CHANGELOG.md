@@ -1,3 +1,10 @@
+# dbt_mailchimp_source v0.4.0
+
+## 🚨 Breaking Change 🚨
+- Added unique key fields and respective tests to `stg_mailchimp__segment_members` and `stg_mailchimp__members`.
+## Contributors
+- @CraigWilson-ZOE ([#24](https://github.com/fivetran/dbt_mailchimp/issues/24)).
+
 # dbt_mailchimp_source v0.3.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
