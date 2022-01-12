@@ -476,11 +476,14 @@ models:
   - name: stg_mailchimp__members
     description: Each record represents a member in Mailchimp.
     columns:
-      - name: member_id
-        description: The ID of the member.
+      - name: list_member_id
+        description: The ID of each record, from combining member id and list id. 
         tests:
           - unique
           - not_null
+
+      - name: member_id
+        description: The ID of the member.
 
       - name: email_address
         description: Email address for a subscriber.
@@ -547,6 +550,12 @@ models:
   - name: stg_mailchimp__segment_members
     description: Each record represents a member and their segment data. 
     columns:
+      - name: segment_member_id
+        description: The ID of each record, from combining segment id and member id. 
+        tests:
+          - unique
+          - not_null
+
       - name: segment_id
         description: The ID for the Segment from Mailchimp.
 
