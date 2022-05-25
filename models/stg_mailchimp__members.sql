@@ -49,7 +49,14 @@ final as (
         
     from fields
 
+), unique_key as (
+
+    select 
+        *, 
+        {{ dbt_utils.surrogate_key(['member_id','list_id']) }} as list_member_id
+    from final
+
 )
 
 select *
-from final
+from unique_key
