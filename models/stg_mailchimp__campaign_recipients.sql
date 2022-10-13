@@ -34,7 +34,7 @@ unique_key as (
 
     select 
         *,
-        {{ dbt_utils.surrogate_key(['campaign_id','member_id']) }} as email_id
+        {{ dbt_utils.generate_surrogate_key(['campaign_id','member_id']) }} as email_id
     from final
     
 )

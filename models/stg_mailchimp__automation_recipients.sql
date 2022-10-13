@@ -36,7 +36,7 @@ final as (
 
     select 
         *,
-        {{ dbt_utils.surrogate_key(['member_id','automation_email_id']) }} as automation_recipient_id
+        {{ dbt_utils.generate_surrogate_key(['member_id','automation_email_id']) }} as automation_recipient_id
     from final
 
 )

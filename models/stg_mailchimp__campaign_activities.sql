@@ -38,8 +38,8 @@ final as (
 
     select 
         *, 
-        {{ dbt_utils.surrogate_key(['action_type', 'campaign_id', 'member_id', 'activity_timestamp']) }} as activity_id,
-        {{ dbt_utils.surrogate_key(['campaign_id','member_id']) }} as email_id
+        {{ dbt_utils.generate_surrogate_key(['action_type', 'campaign_id', 'member_id', 'activity_timestamp']) }} as activity_id,
+        {{ dbt_utils.generate_surrogate_key(['campaign_id','member_id']) }} as email_id
     from final
 
 )

@@ -40,7 +40,7 @@ unique_key as (
 
     select 
         *, 
-        {{ dbt_utils.surrogate_key(['action_type', 'automation_email_id', 'member_id', 'activity_timestamp']) }} as activity_id
+        {{ dbt_utils.generate_surrogate_key(['action_type', 'automation_email_id', 'member_id', 'activity_timestamp']) }} as activity_id
     from final
 )
 
