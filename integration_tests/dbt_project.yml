@@ -3,6 +3,7 @@ version: '0.4.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
+  mailchimp_schema: mailchimp_source_integration_tests
   mailchimp_source:
     automation: "{{ ref('automation') }}"
     automation_email: "{{ ref('automation_email') }}"
