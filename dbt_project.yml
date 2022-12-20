@@ -1,15 +1,12 @@
 name: 'mailchimp_source'
-version: '0.3.0'
-
+version: '0.4.0'
 config-version: 2
-
 models:
   mailchimp_source:
     +materialized: table
     +schema: stg_mailchimp
     tmp:
       +materalized: view
-
 vars:
   mailchimp_source:
     automation: "{{ source('mailchimp','automation') }}"
@@ -27,4 +24,4 @@ vars:
     mailchimp__members_pass_through_columns: []
     mailchimp_using_segments: true
     mailchimp_using_automations: true
-require-dbt-version: [">=1.0.0", "<2.0.0"]
+require-dbt-version: [">=1.3.0", "<2.0.0"]
