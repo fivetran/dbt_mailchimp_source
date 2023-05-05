@@ -1,3 +1,6 @@
+# dbt_mailchimp_source v0.4.1
+## 🎉 Feature Update
+- Databricks compatibility! [PR #12](https://github.com/fivetran/dbt_mailchimp_source/pull/12)
 # dbt_mailchimp_source v0.4.0
 [PR #12](https://github.com/fivetran/dbt_mailchimp_source/pull/12) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
