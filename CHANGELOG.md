@@ -1,8 +1,10 @@
 # dbt_mailchimp_source v0.4.1
-
+## 🎉 Feature Update
+- Databricks compatibility! ([#15](https://github.com/fivetran/dbt_mailchimp_source/pull/15))
  ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#14](https://github.com/fivetran/dbt_mailchimp_source/pull/14))
 - Updated the pull request [templates](/.github). ([#14](https://github.com/fivetran/dbt_mailchimp_source/pull/14))
+
 # dbt_mailchimp_source v0.4.0
 [PR #12](https://github.com/fivetran/dbt_mailchimp_source/pull/12) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
