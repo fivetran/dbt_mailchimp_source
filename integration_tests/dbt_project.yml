@@ -1,5 +1,5 @@
 name: 'mailchimp_source_integration_tests'
-version: '0.4.0'
+version: '0.5.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -61,3 +61,7 @@ seeds:
     unsubscribe:
       +column_types:
         timestamp: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
