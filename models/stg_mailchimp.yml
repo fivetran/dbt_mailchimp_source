@@ -483,6 +483,8 @@ models:
     columns:
       - name: member_id
         description: The ID of the member.
+        tests:
+          - not_null
 
       - name: email_address
         description: Email address for a subscriber.
