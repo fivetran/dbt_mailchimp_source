@@ -1,3 +1,8 @@
+# dbt_mailchimp_source v0.5.1
+
+## 🎉 Feature Update
+- Updates the unique test for `stg_mailchimp__members` to include both `member_id` and `list_id`, as these make up the unique key for the respective source table ([PR #17](https://github.com/fivetran/dbt_mailchimp_source/pull/17))
+
 # dbt_mailchimp_source v0.5.0
 ## 🎉 Feature Update
 - Databricks compatibility! ([#15](https://github.com/fivetran/dbt_mailchimp_source/pull/15))
