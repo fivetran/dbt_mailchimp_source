@@ -27,7 +27,7 @@ final as (
         campaign_id,
         member_id,
         list_id,
-        timestamp as activity_timestamp,
+        cast(timestamp as {{ dbt.type_timestamp() }}) as activity_timestamp,
         ip as ip_address,
         url,
         bounce_type,

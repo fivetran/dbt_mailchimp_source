@@ -25,7 +25,7 @@ final as (
         id as campaign_id,
         segment_id,
         create_time as create_timestamp,
-        send_time as send_timestamp, 
+        cast(send_time as {{ dbt.type_timestamp() }}) as send_timestamp, 
         list_id,
         reply_to as reply_to_email,
         type as campaign_type,
