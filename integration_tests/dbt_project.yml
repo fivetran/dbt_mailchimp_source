@@ -17,8 +17,8 @@ vars:
     mailchimp_list_identifier: "list"
     mailchimp_member_identifier: "member"
     mailchimp_unsubscribe_identifier: "unsubscribe"
-    using_automations: true
-    using_segments: true
+    mailchimp_using_automations: true
+    mailchimp_using_segments: true
 seeds:
   mailchimp_source_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
