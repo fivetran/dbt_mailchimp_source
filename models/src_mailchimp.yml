@@ -13,8 +13,8 @@ sources:
       - name: automation
         identifier: "{{ var('mailchimp_automation_identifier', 'automation')}}"
         description: Each record represents an automation in Mailchimp.
-        meta:
-          is_enabled: "{{ var('using_automations', true) }}"
+        config:
+          enabled: "{{ var('mailchimp_using_automations', true) }}"
         columns:
           - name: id
             description: The ID of the automation in Mailchimp.
@@ -44,8 +44,8 @@ sources:
       - name: automation_email
         identifier: "{{ var('mailchimp_automation_email_identifier', 'automation_email')}}"
         description: Each record represents an automation email (that make up automations).
-        meta:
-          is_enabled: "{{ var('using_automations', true) }}"
+        config:
+          enabled: "{{ var('mailchimp_using_automations', true) }}"
         columns:
           - name: id
             description: The ID of the email.
@@ -129,8 +129,8 @@ sources:
       - name: automation_recipient
         identifier: "{{ var('mailchimp_automation_recipient_identifier', 'automation_recipient')}}"
         description: Each record represents info about the recipient of each automation.
-        meta:
-          is_enabled: "{{ var('using_automations', true) }}"
+        config:
+          enabled: "{{ var('mailchimp_using_automations', true) }}"
         columns:
           - name: member_id
             description: The ID of the member the automation was sent to.
@@ -144,8 +144,8 @@ sources:
       - name: automation_recipient_activity
         identifier: "{{ var('mailchimp_automation_recipient_activity_identifier', 'automation_recipient_activity')}}"
         description: Each record represents an activity taken in relation to a automation email.
-        meta:
-          is_enabled: "{{ var('using_automations', true) }}"
+        config:
+          enabled: "{{ var('mailchimp_using_automations', true) }}"
         columns:
           - name: action
             description: >
@@ -174,7 +174,6 @@ sources:
         columns:
           - name: id
             description: The ID of the campaign in Mailchimp.
-          
           - name: segment_id
             description: The ID of the Segment a campaign was sent to.
           - name: create_time
@@ -304,6 +303,8 @@ sources:
       - name: segment
         identifier: "{{ var('mailchimp_segment_identifier', 'segment')}}"
         description: Each record represents a segment in Mailchimp.
+        config:
+          enabled: "{{ var('mailchimp_using_segments', true) }}"
         columns:
           - name: id
             description: The ID for the Segment from Mailchimp
@@ -323,9 +324,12 @@ sources:
             description: UTC timestamp that indicates the time when Fivetran last successfully synced the row.
           - name: _fivetran_deleted
             description: Boolean that is true if the row has been soft-deleted from the source.
+
       - name: segment_member
         identifier: "{{ var('mailchimp_segment_member_identifier', 'segment_member')}}"
         description: Each record represents a member and their segment data. 
+        config:
+          enabled: "{{ var('mailchimp_using_segments', true) }}"
         columns:
           - name: segment_id
             description: The ID for the Segment from Mailchimp.

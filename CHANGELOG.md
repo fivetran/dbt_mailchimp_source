@@ -1,3 +1,18 @@
+# dbt_mailchimp_source v0.5.2
+[PR #19](https://github.com/fivetran/dbt_mailchimp_source/pull/19) includes the following updates:
+
+## 🐛 Bug Fixes 🔨
+- Cast `activity_timestamp` in `stg_mailchimp__campaign_activities` and `send_timestamp` in `stg_mailchimp__campaigns` to `dbt.type_timestamp()`. This ensures the `dbt.datediff()` function in the `mailchimp__campaign_activities` model in the `dbt_mailchimp` package properly runs in Redshift.
+- Corrected source freshness variables to properly reference `mailchimp_using_automations`.
+
+## 🧪 Test Updates 🧪
+- Updated the source freshness test enablement/disablement to leverage the dbt-core `config: enabled:` architecture.
+- Added source freshness tests for models utilizing the `mailchimp_using_segments` variable.
+
+## 🚘 Under the Hood 🚘 
+- Updated the pull request [templates](/.github). 
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+
 # dbt_mailchimp_source v0.5.1
 [PR #17](https://github.com/fivetran/dbt_mailchimp_source/pull/17) includes the following updates:
 ## 🎉 Feature Update
