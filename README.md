@@ -13,9 +13,9 @@
 # Mailchimp Source dbt Package ([Docs](https://fivetran.github.io/dbt_mailchimp_source/))
 ## What does this dbt package do?
 - Materializes [Mailchimp staging tables](https://fivetran.github.io/dbt_mailchimp_source/#!/overview/mailchimp_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/mailchimp/#schemainformation). These staging tables clean, test, and prepare your Mailchimp data from [Fivetran's connector](https://fivetran.com/docs/applications/mailchimp) for analysis by doing the following:
-- Name columns for consistency across all packages and for easier analysis
-- Adds freshness tests to source data
-- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+  - Name columns for consistency across all packages and for easier analysis
+  - Adds freshness tests to source data
+  - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Mailchimp data through the [dbt docs site](https://fivetran.github.io/dbt_mailchimp_source/).
 - These tables are designed to work simultaneously with our [Mailchimp transformation package](https://github.com/fivetran/dbt_mailchimp).
 
