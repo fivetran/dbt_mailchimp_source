@@ -1,3 +1,5 @@
+{{ config(enabled=var('mailchimp_using_unsubscribes', True)) }}
+
 with base as (
 
     select * 
