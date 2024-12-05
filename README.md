@@ -39,7 +39,7 @@ If you  are **NOT** using the [Mailchimp transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/mailchimp_source
-    version: [">=0.5.0", "<0.6.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables
@@ -52,16 +52,17 @@ vars:
 ```
 
 ### Step 4: Disable models for non-existent sources
-Your Mailchimp connector may not sync every table that this package expects. If your syncs exclude certain tables, it is because you either do not use that functionality in Mailchimp or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must set the relevant config variables to `false`. By default, all variables are set to `true`. Alter variables for only the tables you want to disable:
+Your Mailchimp connector may not sync every table that this package expects. If your syncs exclude certain tables, it is because you either do not use that functionality in Mailchimp or actively excluded some tables from your syncs. To disable the corresponding functionality in the package, you must set the relevant config variables to `false`. By default, all variables are set to `true`. Only alter variables for the tables you want to disable:
 
 ```yml
 vars:
   mailchimp_using_automations: false #disable if you do not have the automation_email, automation_email, or automation_recipient_activity tables
   mailchimp_using_segments: false #disable if you do not have the segment or segment_member table
+  mailchimp_using_unsubscribes: false #disable if you do not have the unsubscribe table
 ```
 
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand to view configurations</summary>
+<details open><summary>Expand/collapse configurations</summary>
 
 #### Changing the Build Schema
 By default, this package builds the Mailchimp staging models within a schema titled (`<target_schema>` + `_stg_mailchimp`) in your destination. If this is not where you would like your Mailchimp staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
