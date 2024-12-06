@@ -1,5 +1,7 @@
 # dbt_mailchimp_source v0.6.0
 [PR #22](https://github.com/fivetran/dbt_mailchimp_source/pull/22) includes the following updates:
+
+## Breaking Changes
 - Added the ability to disable the `unsubscribe` source and the `stg_mailchimp__unsubscribes` model by setting the `mailchimp_using_unsubscribes` variable in your `dbt_project.yml`. 
   - For details on configuring this variable, refer to the [README](https://github.com/fivetran/dbt_mailchimp_source/blob/main/README.md#step-4-disable-models-for-non-existent-sources).
 
