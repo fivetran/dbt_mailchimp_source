@@ -1,5 +1,5 @@
 name: 'mailchimp_source_integration_tests'
-version: '0.5.2'
+version: '0.6.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -17,8 +17,6 @@ vars:
     mailchimp_list_identifier: "list"
     mailchimp_member_identifier: "member"
     mailchimp_unsubscribe_identifier: "unsubscribe"
-    mailchimp_using_automations: true
-    mailchimp_using_segments: true
 seeds:
   mailchimp_source_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"

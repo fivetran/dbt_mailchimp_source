@@ -459,6 +459,8 @@ sources:
       - name: unsubscribe
         identifier: "{{ var('mailchimp_unsubscribe_identifier', 'unsubscribe')}}"
         description: Each record represents a member who unsubscribed.
+        config:
+          enabled: "{{ var('mailchimp_using_unsubscribes', true) }}"
         columns:
           - name: campaign_id
             description: The unique id for the campaign.
