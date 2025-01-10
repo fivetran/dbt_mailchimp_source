@@ -1,3 +1,8 @@
+# dbt_mailchimp_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#23](https://github.com/fivetran/dbt_mailchimp_source/pull/23))
+
 # dbt_mailchimp_source v0.6.0
 [PR #22](https://github.com/fivetran/dbt_mailchimp_source/pull/22) includes the following updates:
 
