@@ -1,12 +1,15 @@
 # dbt_mailchimp_source v0.7.0
 This release includes the following updates.
 
-## Breaking Changes
-- Fixed materialization configuration in `dbt_project.yml` to ensure tmp models are materialized as views rather than tables. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25))
+## Breaking Changes (`--full-refresh` required)
+- Fixed materialization configuration in `dbt_project.yml` to ensure tmp models are materialized as views rather than tables. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
+
+## Under the Hood
+- Moved the freshness property in `src_mailchimp.yml` into the config to resolve deprecated dbt functionality errors. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25))
+- Updated the package maintainer pull request template. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#23](https://github.com/fivetran/dbt_mailchimp_source/pull/23))
-- Updates the package maintainer pull request template. 
 
 # dbt_mailchimp_source v0.6.0
 [PR #22](https://github.com/fivetran/dbt_mailchimp_source/pull/22) includes the following updates:
