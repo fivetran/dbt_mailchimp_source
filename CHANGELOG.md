@@ -6,6 +6,7 @@ This release includes the following updates.
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#23](https://github.com/fivetran/dbt_mailchimp_source/pull/23))
+- Updates the package maintainer pull request template. 
 
 # dbt_mailchimp_source v0.6.0
 [PR #22](https://github.com/fivetran/dbt_mailchimp_source/pull/22) includes the following updates:
