@@ -6,6 +6,8 @@ This release includes the following updates.
 
 ## Under the Hood
 - Updated the package maintainer pull request template. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
+- Updated the triggers for the `auto-release` GitHub Action workflow. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25))
+- Added the `generate-docs` GitHub Action workflow. ([#26](https://github.com/fivetran/dbt_mailchimp_source/pull/26))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#23](https://github.com/fivetran/dbt_mailchimp_source/pull/23))
