@@ -40,7 +40,7 @@ If you  are **NOT** using the [Mailchimp transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/mailchimp_source
-    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables

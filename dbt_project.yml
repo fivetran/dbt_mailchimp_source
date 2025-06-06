@@ -1,12 +1,12 @@
 name: 'mailchimp_source'
-version: '0.6.0'
+version: '0.7.0'
 config-version: 2
 models:
   mailchimp_source:
     +materialized: table
     +schema: stg_mailchimp
     tmp:
-      +materalized: view
+      +materialized: view
 vars:
   mailchimp_source:
     automation: "{{ source('mailchimp','automation') }}"
