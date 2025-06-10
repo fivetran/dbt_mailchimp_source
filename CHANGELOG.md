@@ -3,10 +3,10 @@ This release includes the following updates.
 
 ## Schema Changes
 
-**1 total changes • 1 possible breaking change**
+**1 total change • 1 possible breaking change**
 | **Model/Column** | **Change type** | **Old materialization** | **New materialization** | **Notes** |
 | ---------------- | --------------- | ------------ | ------------ | --------- |
-| [*_tmp](https://github.com/fivetran/dbt_mailchimp_source/tree/main/models/tmp) Models | New Materialization | Table  | View | Fixed the materialization config in the `dbt_project.yml` to ensure `*_tmp` models are materialized as views rather than tables. **This is a breaking change and will require a `dbt run --full-refresh`.** ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) |
+| [*_tmp](https://github.com/fivetran/dbt_mailchimp_source/tree/main/models/tmp) Models | New Materialization | Table  | View | Fixed the materialization config in the `dbt_project.yml` to ensure staging `*_tmp` models are materialized as views rather than tables. **This is a breaking change and will require a `dbt run --full-refresh`.** ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) |
 
 ## Under the Hood
 - Updated the package maintainer pull request template. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
