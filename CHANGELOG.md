@@ -1,8 +1,12 @@
 # dbt_mailchimp_source v0.7.0
 This release includes the following updates.
 
-## Breaking Changes (`--full-refresh` required)
-- Fixed materialization configuration in `dbt_project.yml` to ensure tmp models are materialized as views rather than tables. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
+## Schema Changes
+
+**1 total changes • 1 possible breaking change**
+| **Model/Column** | **Change type** | **Old materialization** | **New materialization** | **Notes** |
+| ---------------- | --------------- | ------------ | ------------ | --------- |
+| [*_tmp](https://github.com/fivetran/dbt_mailchimp_source/tree/main/models/tmp) Models | New Materialization | Table  | View | Fixed the materialization config in the `dbt_project.yml` to ensure `*_tmp` models are materialized as views rather than tables. **This is a breaking change and will require a `dbt run --full-refresh`.** ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) |
 
 ## Under the Hood
 - Updated the package maintainer pull request template. ([#25](https://github.com/fivetran/dbt_mailchimp_source/pull/25)) 
