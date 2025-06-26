@@ -1,5 +1,5 @@
 name: 'mailchimp_source'
-version: '0.7.0'
+version: '0.8.0'
 config-version: 2
 models:
   mailchimp_source:
