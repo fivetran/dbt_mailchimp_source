@@ -18,6 +18,8 @@ vars:
     mailchimp_member_identifier: "member"
     mailchimp_unsubscribe_identifier: "unsubscribe"
 seeds:
+  +docs:
+    show: False
   mailchimp_source_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     +column_types:
@@ -66,3 +68,5 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
